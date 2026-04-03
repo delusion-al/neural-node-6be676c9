@@ -1,13 +1,98 @@
 ---
-interface Props { title: string; }
-const { title } = Astro.props;
 import config from '../data/config.json';
-const brand = config.brand || {};
+const { seo } = config;
 ---
-<!doctype html>
-<html lang="es" class="dark bg-slate-950 text-white font-sans">
-  <head>
-    <meta charset="UTF-8" /><meta name="viewport" content="width=device-width" /><title>{title}</title>
-  </head>
-  <body><slot /></body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={seo?.description} />
+    <title>{seo?.title || 'Taste Gallery'}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style is:global>
+        :root {
+            --color-void: hsl(220, 15%, 8%);
+            --color-saffron: hsl(45, 100%, 50%);
+            --color-truffle: hsl(30, 20%, 90%);
+            --color-velvet: hsl(340, 40%, 30%);
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.125);
+        }
+
+        body {
+            background-color: var(--color-void);
+            color: var(--color-truffle);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+        }
+
+        .text-saffron { color: var(--color-saffron); }
+        .bg-saffron { background-color: var(--color-saffron); }
+        .bg-void { background-color: var(--color-void); }
+        
+        /* Custom Smooth Scroll Setup */
+        html.lenis {
+            height: auto;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto;
+        }
+
+        /* Mask Slide Animation */
+        .reveal-text {
+            position: relative;
+            overflow: hidden;
+        }
+        .reveal-text span {
+            display: block;
+            transform: translateY(100%);
+            transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+        }
+        .reveal-text.active span {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <slot />
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script>
+        const lenis = new Lenis();
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Intersection Observer for kinetic reveals
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+    </script>
+</body>
 </html>
