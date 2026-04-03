@@ -2,65 +2,25 @@
   "brand": {
     "font": "Inter",
     "colors": {
-      "accent": "#8b5cf6",
-      "primary": "#3b82f6",
-      "secondary": "#0f172a"
+      "primary": "hsl(220, 15%, 8%)",
+      "accent": "hsl(45, 100%, 50%)",
+      "secondary": "hsl(30, 20%, 90%)",
+      "highlight": "hsl(340, 40%, 30%)"
     },
     "logo_text": "Taste Gallery"
   },
   "seo": {
-    "title": "Taste Gallery - restaurant en Madrid",
-    "description": "Bienvenido a Taste Gallery. Expertos en restaurant ubicados en Madrid. Calidad y confianza garantizada."
+    "title": "Taste Gallery | Epicurean Digital",
+    "description": "An exclusive sensory sanctuary for the world's most discerning palates. Experience the intersection of haute cuisine and digital art."
   },
   "pages": [
     {
       "id": "home",
-      "hero": {
-        "title": "Taste Gallery",
-        "subtitle": "Tu experto local en restaurant en Madrid",
-        "button_text": "Reservar Cita"
-      },
-      "layout": "glassmorphism",
-      "contact": {
-        "email": "info@taste-gallery.aifactory.dev",
-        "phone": "+34917589339",
-        "address": "Madrid"
-      },
-      "pricing": [
-        {
-          "name": "Básico",
-          "price": "Económico",
-          "features": [
-            "Servicio estándar",
-            "Garantía 30 días"
-          ]
-        },
-        {
-          "name": "Premium",
-          "price": "Recomendado",
-          "features": [
-            "Prioridad máxima",
-            "Atención 24/7",
-            "Garantía extendida"
-          ]
-        }
-      ],
-      "features": [
-        {
-          "desc": "Priorizamos tu tiempo en Madrid.",
-          "icon": "Zap",
-          "title": "Atención Express"
-        },
-        {
-          "desc": "Seguridad y precisión en cada servicio de restaurant.",
-          "icon": "Shield",
-          "title": "Garantía Neural"
-        },
-        {
-          "desc": "Acabados y atención al detalle de alto nivel.",
-          "icon": "Star",
-          "title": "Calidad Premium"
-        }
+      "blocks": [
+        "CinematicHero",
+        "BentoExperienceGrid",
+        "InvitationGate",
+        "CuratedMarketplacePreview"
       ]
     }
   ],
@@ -82,5 +42,5 @@
       "label": "Contacto"
     }
   ],
-  "updated_at": "2026-04-03T22:22:37.198Z"
+  "updated_at": "2026-04-03T23:18:53.886Z"
 }
