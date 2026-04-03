@@ -3,15 +3,143 @@ import Layout from '../layouts/Layout.astro';
 import config from '../data/config.json';
 const { brand, seo } = config;
 ---
-<Layout title={seo?.title || 'Neural Node'}>
-  <main class="min-h-screen flex flex-col items-center justify-center p-8 text-center">
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1),transparent)] pointer-events-none"></div>
-    <h1 class="text-6xl font-black italic tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500 uppercase">
-       {brand?.name || 'NODE'}
-    </h1>
-    <p class="text-slate-400 text-lg max-w-xl italic">"{seo?.description}"</p>
-    <div class="mt-12 p-6 border border-white/5 rounded-3xl bg-black/40 backdrop-blur-xl">
-       <span class="text-[10px] font-black tracking-widest text-blue-500 uppercase italic">Neural Experience Actived</span>
-    </div>
-  </main>
+<Layout>
+    <main class="relative min-h-screen">
+        <!-- Ambient Background Elements -->
+        <div class="fixed inset-0 pointer-events-none">
+            <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-velvet/20 blur-[120px]"></div>
+            <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-saffron/10 blur-[120px]"></div>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="relative h-screen flex items-center justify-center p-6 overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <video 
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline 
+                    class="w-full h-full object-cover opacity-40 grayscale-[30%]"
+                >
+                    <source src="https://assets.mixkit.co/videos/preview/mixkit-pouring-red-wine-into-a-glass-close-up-4019-large.mp4" type="video/mp4">
+                </video>
+                <div class="absolute inset-0 bg-gradient-to-b from-void/20 via-void/60 to-void"></div>
+            </div>
+
+            <div class="relative z-10 text-center max-w-5xl">
+                <div class="reveal-text mb-4">
+                    <span class="text-saffron font-mono text-sm tracking-[0.3em] uppercase">Est. 2024 — Epicurean Digital</span>
+                </div>
+                <h1 class="reveal-text text-7xl md:text-9xl font-bold italic tracking-tighter mb-8 leading-none">
+                    <span>{brand?.name || 'TASTE GALLERY'}</span>
+                </h1>
+                <div class="reveal-text">
+                    <span class="text-truffle/60 text-lg md:text-2xl max-w-2xl mx-auto font-light italic">
+                        "A curated intersection of sensory luxury and digital precision for the global elite."
+                    </span>
+                </div>
+                
+                <div class="mt-12 flex flex-col sm:flex-row gap-6 justify-center items-center">
+                    <a href="#invite" class="magnetic-btn group relative px-8 py-4 bg-saffron text-void font-bold rounded-full overflow-hidden transition-all duration-300 hover:scale-105 active:scale-95">
+                        <span class="relative z-10">Request Invitation</span>
+                        <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    </a>
+                    <a href="#gallery" class="px-8 py-4 glass-panel text-truffle font-medium rounded-full hover:bg-white/10 transition-all">
+                        Explore Collection
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bento Experience Grid -->
+        <section id="gallery" class="py-32 px-6 max-w-7xl mx-auto">
+            <div class="mb-20 text-center">
+                <h2 class="text-5xl font-bold mb-4">The Sensory Archive</h2>
+                <p class="text-truffle/50">A non-linear journey through culinary mastery.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-auto gap-6">
+                <!-- Hero Cell: Large -->
+                <div class="md:col-span-2 md:row-span-2 glass-panel relative group overflow-hidden min-h-[500px] cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1000" 
+                         class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60" alt="Culinary Masterpiece" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-void via-transparent to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <span class="text-saffron font-mono text-xs uppercase tracking-widest">Featured Experience</span>
+                        <h3 class="text-3xl font-bold mt-2">The Obsidian Tasting</h3>
+                    </div>
+                </div>
+
+                <!-- Curator Cell: Medium -->
+                <div class="md:col-span-2 glass-panel p-8 flex flex-col justify-between group hover:border-saffron/50 transition-colors">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-2">Chef's Choice</h3>
+                        <p class="text-truffle/60">Weekly rotations of rare ingredients sourced from the hidden corners of the earth.</p>
+                    </div>
+                    <div class="mt-6 flex items-center text-saffron font-mono text-sm cursor-pointer group-hover:translate-x-2 transition-transform">
+                        VIEW CURATION <span class="ml-2">→</span>
+                    </div>
+                </div>
+
+                <!-- Experience Cell: Small -->
+                <div class="glass-panel p-8 flex flex-col items-center justify-center text-center group hover:bg-velvet/20 transition-all">
+                    <div class="w-12 h-12 rounded-full bg-saffron/20 flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-saffron" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="font-bold">Private Bookings</h3>
+                </div>
+
+                <!-- Metric Cell: Small -->
+                <div class="glass-panel p-8 flex flex-col items-center justify-center text-center">
+                    <span class="font-mono text-4xl font-bold text-saffron">1,240</span>
+                    <span class="text-[10px] uppercase tracking-widest text-truffle/40 mt-2">Exclusive Experiences Hosted</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Invitation Gate -->
+        <section id="invite" class="py-32 px-6">
+            <div class="max-w-3xl mx-auto glass-panel p-12 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-saffron to-transparent"></div>
+                <h2 class="text-4xl font-bold mb-6">Request Entry</h2>
+                <p class="text-truffle/60 mb-10">
+                    Membership is strictly limited to ensure the intimacy of the experience. 
+                    Please submit your credentials for review by our concierge.
+                </p>
+                <form class="flex flex-col md:flex-row gap-4">
+                    <input 
+                        type="email" 
+                        placeholder="your@email.com" 
+                        class="flex-1 px-6 py-4 rounded-full bg-void border border-white/10 focus:border-saffron outline-none transition-all"
+                    />
+                    <button class="px-8 py-4 bg-saffron text-void font-bold rounded-full hover:brightness-110 transition-all">
+                        Apply for Access
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <style>
+        .magnetic-btn {
+            transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    </style>
+
+    <script>
+        // Magnetic Button Logic
+        document.querySelectorAll('.magnetic-btn').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+    </script>
 </Layout>
