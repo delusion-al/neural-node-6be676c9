@@ -2,10 +2,10 @@
   "brand": {
     "font": "Inter",
     "colors": {
-      "primary": "hsl(220, 15%, 8%)",
       "accent": "hsl(45, 100%, 50%)",
-      "secondary": "hsl(30, 20%, 90%)",
-      "highlight": "hsl(340, 40%, 30%)"
+      "primary": "hsl(220, 15%, 8%)",
+      "highlight": "hsl(340, 40%, 30%)",
+      "secondary": "hsl(30, 20%, 90%)"
     },
     "logo_text": "Taste Gallery"
   },
@@ -42,5 +42,5 @@
       "label": "Contacto"
     }
   ],
-  "updated_at": "2026-04-03T23:18:53.886Z"
+  "updated_at": "2026-04-04T00:16:50.206Z"
 }
